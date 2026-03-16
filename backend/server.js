@@ -28,8 +28,6 @@ app.use(cors({
   credentials: true
 }));
 
-app.options("*", cors());
-
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))

@@ -18,10 +18,17 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+// app.use(cors({
+//   origin: "https://mern-money-splitter.vercel.app",
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: "https://mern-money-splitter.vercel.app/",
+  origin: ["http://localhost:5173","https://mern-money-splitter.vercel.app"],
   credentials: true
 }));
+
+app.options("*", cors());
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
